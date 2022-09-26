@@ -1,6 +1,6 @@
 let scoreCount = 0;
 let questionCount = 0;
-let number = 10;
+let number = 15;
 let running = true;
 
 function writeTime(){
@@ -10,7 +10,7 @@ function writeTime(){
         document.querySelector('.answers').innerHTML = ""
         document.querySelector('.score').innerHTML = ""
         document.querySelector(".timer").innerHTML = ""
-        let speed = questionCount/10
+        let speed = Math.round(questionCount/15*100)/100
         let accuracy = Math.round(scoreCount/questionCount)*100 + "%"
         let finalMessage1 = `You got ${scoreCount} questions correct.`
         let finalMessage2 = `Your answer speed is ${speed} questions per second and your accuracy is ${accuracy}`
@@ -18,7 +18,7 @@ function writeTime(){
         document.querySelector(".question").innerHTML = finalMessage1
         document.querySelector(".answers").innerHTML = finalMessage2
 
-    }else if (number === 10){
+    }else if (number === 15){
         document.querySelector(".question").innerHTML = ""
         document.querySelector(".score").innerHTML = "score:"
         writeEquation()
@@ -63,7 +63,11 @@ function writeEquation(){
             answerDiv.innerHTML = correctAnswer 
         }else{
             if (operation === "+" || operation ==="-"){
-            answerDiv.innerHTML = Math.round(Math.random()*20)
+                let randomAnswer =  Math.round(Math.random()*20)
+                if (randomAnswer === correctAnswer){
+                    randomAnswer = Math.round(Math.random()*20)
+                }
+                answerDiv.innerHTML = randomAnswer
             }else if (operation ==="*"){
                 answerDiv.innerHTML = Math.round(Math.random()*100) 
             }else{
