@@ -11,7 +11,7 @@ function writeTime(){
         document.querySelector('.score').innerHTML = ""
         document.querySelector(".timer").innerHTML = ""
         let speed = Math.round(questionCount/15*100)/100
-        let accuracy = Math.round(scoreCount/questionCount)*100 + "%"
+        let accuracy = Math.round(scoreCount/questionCount*100) + "%"
         let finalMessage1 = `You got ${scoreCount} questions correct.`
         let finalMessage2 = `Your answer speed is ${speed} questions per second and your accuracy is ${accuracy}`
         document.getElementsByClassName('main')[0].style.marginTop = "50px"
@@ -93,7 +93,7 @@ function writeEquation(){
             //if (questionCount < 5){
             //    writeEquation()
             //}
-        }, 100)
+        }, 300)
     })
     }
 
